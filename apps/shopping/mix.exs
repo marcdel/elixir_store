@@ -18,7 +18,10 @@ defmodule ElixirStore.Shopping.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [
+      applications: [:logger],
+      mod: { ElixirStore.Shopping, [] }
+    ]
   end
 
   # Dependencies can be Hex packages:
