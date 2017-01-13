@@ -14,7 +14,7 @@ defmodule ElixirStore.Shopping.Session do
     discounts: []
   ]
 
-  def start_link(%{key: key} = args), do: GenServer.start_link(__MODULE__, args, name: key)
+  def start_link(%{key: key} = args), do: GenServer.start_link(__MODULE__, args)
 
   def init(%{key: _key} = args) do
     session = Db.find_or_create_session(args)
