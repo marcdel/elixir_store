@@ -19,7 +19,7 @@ defmodule ElixirStore.Shopping.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-      applications: [:logger],
+      applications: [:logger, :moebius],
       mod: { ElixirStore.Shopping, [] }
     ]
   end
@@ -38,6 +38,8 @@ defmodule ElixirStore.Shopping.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      { :moebius, github: "robconery/moebius", branch: "master" }
+    ]
   end
 end
