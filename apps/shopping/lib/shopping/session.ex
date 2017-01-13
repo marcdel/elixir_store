@@ -16,7 +16,7 @@ defmodule ElixirStore.Shopping.Session do
 
   def start_link(%{key: key} = args), do: GenServer.start_link(__MODULE__, args, name: key)
 
-  def init(%{key: key} = args) do
+  def init(%{key: _key} = args) do
     session = Db.find_or_create_session(args)
     {:ok, session}
   end

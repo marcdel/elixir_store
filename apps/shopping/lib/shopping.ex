@@ -3,8 +3,8 @@ defmodule ElixirStore.Shopping do
   import Supervisor.Spec, warn: false
 
   def start(_type, _args) do
-    start_session_supervisor
-    start_database
+    start_session_supervisor()
+    start_database()
   end
 
   def start_session_supervisor do
