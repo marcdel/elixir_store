@@ -26,7 +26,7 @@ defmodule ElixirStore.Shopping.Session do
   def change_item(pid, sku: sku), do: GenServer.call(pid, {:change_item, sku: sku})
 
   def handle_call({:select_item, item}, _sender, session) do
-    session = %{session | items: List.insert_at(session.items, -1, item)} |> save_session
+    session = %{session | items: List.insert_at(session.items, -1, item)} |> Db.save_session
     {:reply, session, session}
   end
 
@@ -34,9 +34,5 @@ defmodule ElixirStore.Shopping.Session do
   end
 
   def handle_call({:change_item, sku: sku}, _sender, session) do
-  end
-
-  def save_session(%ElixirStore.Shopping.Session{} = session, log: log) do
-    %{session | logs: List.insert_at(session.logs, -1, %{entry: log})} |> Db.save_session
   end
 end
